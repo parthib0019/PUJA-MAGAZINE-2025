@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previous Year</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    /* Header Styling */
+    header {
+      background: url('media/maa.png') no-repeat center center;
+      background-size: 100% auto;
+      height: 500px;
+      width: auto;
+      position: relative;
+      padding: 0;
+      margin: 0;
+    }
+    .header-top-left {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    .header-top-left img {
+      width: 60px;
+      height: auto;
+      margin-right: 1rem;
+    }
+    .header-top-left h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 0;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .header-center-text {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+    .header-center-text h2 {
+      color: #fff;
+      margin: 0.5rem 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .header-center-text h1 {
+      color: #fff;
+      margin: 0.5rem 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    header nav {
+      text-align: center;
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 0;
+    }
+    header nav ul li {
+      display: inline-block;
+      margin: 0;
+    }
+    header nav ul li a {
+      text-decoration: none;
+      color: #2e2e2e;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: #ffffff;
+      padding: 0.7rem 1.6rem;
+      border-radius: 6px;
+      border: 2px solid #ffffff;
+      transition: none;
+      text-shadow: none;
+      display: inline-block;
+    }
+    header nav ul li a:hover {
+      color: #2e2e2e;
+      background: #ffffff;
+      border-color: #ffffff;
+      box-shadow: none;
+    }
+    header nav ul li a.active {
+      color: #2e2e2e;
+      background: #fffafa;
+      border-color: #ffd992;
+      font-weight: 700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to bottom, #ffd992, #ffffff);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      border-top: 4px solid black;
+      border-bottom: 4px solid black;
+      max-width: 2000px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #2e2e2e;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Year Links Grid */
+    .year-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 3rem 2rem;
+      max-width: 1300px;
+      margin: auto;
+    }
+    .year-links a {
+      text-decoration: none;
+    }
+    .year-card {
+      background: linear-gradient(135deg, #fdf1d6, #fff);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+    .year-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+    .year-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+      background: linear-gradient(135deg, #ffe7ba, #fff9f0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top-left">
+      <img src="media/rkm-removebg-preview.png" alt="RKMVM Logo">
+      <h2>Ramakrishna Mission Vidyamandira</h2>
+    </div>
+
+    <div class="header-center-text">
+      <h2>Puja Magazine</h2>
+      <h1>প্রয়াস - বিবেক ভবন</h1>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index_main.html">This Year</a></li>
+        <li><a class="active" href="previous.html">Previous Year</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2 lang="bn">আগের বছরের প্রয়াশ</h2>
+    <p>A curated collection of the most notable stories and achievements from the past year, preserved for reflection and inspiration.</p>
+  </section>
+
+  <main class="year-links">
+    <a href="https://thevivekbhavanmagazine2024.netlify.app">
+      <div class="year-card">
+        <h3>Digital Wallmagazine 2024</h3>
+      </div>
+    </a>
+    <a href="https://vivekbhavan.netlify.app/">
+      <div class="year-card">
+        <h3>Digital Wallmagazine 2023</h3>
+      </div>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <!-- Left -->
+      <div class="footer-left">
+        <img src="media/rkm-removebg-preview.png" alt="RKMVM Logo">
+        <h3>প্রয়াস - বিবেক ভবন</h3>
+        <p>&copy; 2025 Ramakrishna Mission Vidyamandira</p>
+      </div>
+      <!-- Center -->
+      <div class="footer-center">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index_main.html">This Year</a></li>
+          <li><a href="previous.html">Previous Years</a></li>
+          <li><a href="about_us.html">About Us</a></li>
+        </ul>
+      </div>
+      <!-- Right -->
+      <div class="footer-right">
+        <h4>Contact</h4>
+        <p>Belur Math, Howrah, WB</p>
+        <p>Email: info@vidyamandira.ac.in</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

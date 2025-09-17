@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidyamandira Puja Magazine 2025</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #ff682c;
+      --gold: #ffc343;
+      --dark-bg: #1a1a1a;
+      --light-bg: rgba(255, 255, 255, 0.1);
+      --text: #ffffff;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Top Navigation Bar - Hidden initially */
+    .top-nav {
+      position: fixed;
+      top: -80px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: top 0.4s ease;
+    }
+
+    .top-nav.visible {
+      top: 0;
+    }
+
+    .nav-logo {
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 100%;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+           font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      z-index: 2;
+    }
+
+    .welcome-text {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+     
+     .header-photo-subtext span {
+      text-align: center;
+      opacity: 0;
+      animation: fadeInChar 0.3s ease forwards;
+    }
+
+     .container span {
+      position: center;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 34px;
+      font-weight: 600;
+
+      
+    }
+    
+    .hero h1 {
+      font-size: 6.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.8rem;
+      opacity: 0.9;
+      color: var(--text);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      margin-bottom: 2rem;
+    }
+
+    /* Main Container */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      padding-top: 0;
+      overflow: hidden;
+    }
+
+    /* Big Image with Overlay */
+    .big-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .big-image {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+      opacity: 0.85;
+      transition: transform 0.5s ease;
+    }
+
+    .big-image-wrapper:hover .big-image {
+      transform: scale(1.02);
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .image-overlay-text {
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .image-fade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 45%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+      pointer-events: none;
+    }
+
+    /* Header Subtext */
+    .header-photo-subtext {
+      width: 90%;
+      max-width: 1200px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .header-photo-subtext h2 {
+      color: var(--gold);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    /* Preface Section */
+    .preface-section {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      padding: 30px;
+      background: var(--light-bg);
+      border-radius: 20px;
+    }
+
+    .preface-section h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 2.2rem;
+      color: var(--gold);
+    }
+
+    .preface-section p {
+      text-align: justify;
+      font-size: 1.1rem;
+      color: var(--text);
+      opacity: 0.92;
+      line-height: 1.8;
+    }
+
+    /* Features Section - Always visible */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 20px 0;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Square feature cards */
+    .feature {
+      width: 15%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .feature img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .feature span {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* About Section - Updated layout */
+    .about-vivek {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background: transparent;
+      border-radius: 24px;
+      padding: 28px 20px;
+      margin-top: 40px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-vivek h3 {
+      color: var(--gold);
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .about-vivek p {
+      text-align: justify;
+      font-size: 1.1rem;
+      color: var(--text);
+      opacity: 0.92;
+      line-height: 1.8;
+    }
+
+    .about-image {
+      flex: 1;
+      width: 100%;
+      text-align: right;
+    }
+
+    .about-vivek img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .about-vivek img:hover {
+      transform: scale(1.05);
+    }
+
+  /* Footer - Black color */
+  footer {
+    background: #000000;
+    padding: 30px 0 15px 0;
+    color: var(--text);
+    margin-top: 60px;
+  }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+      gap: 20px;
+      height: 180px;
+    }
+
+    .footer-left {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-left h2 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+
+    .footer-left p {
+      margin-bottom: 10px;
+      opacity: 0.8;
+      line-height: 1.2;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-width: 100px;
+    }
+
+    .footer-logo {
+      width: 180px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 0.5px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 5rem;
+      }
+      
+      .welcome-text {
+        font-size: 2rem;
+      }
+      
+      .image-overlay-text {
+        font-size: 3.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-nav {
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+      
+      .welcome-text {
+        font-size: 1.8rem;
+      }
+      
+      .hero p {
+        font-size: 1.4rem;
+      }
+      
+      .image-overlay-text {
+        font-size: 2.5rem;
+      }
+      
+      .about-vivek {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .about-image {
+        text-align: center;
+      }
+      
+      .footer-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .welcome-text {
+        font-size: 1.5rem;
+      }
+      
+      .container {
+        width: 95%;
+        border-radius: 20px;
+      }
+      
+      .preface-section, .about-vivek {
+        padding: 20px;
+      }
+      
+      .header-photo-subtext h2 {
+        font-size: 1.8rem;
+      }
+      
+      .features {
+        width: 98%;
+        gap: 15px;
+      }
+      
+      .feature {
+        flex: 0 1 45vw;
+        width: 45vw;
+        max-width: 160px;
+        height: 45vw;
+        max-height: 160px;
+        font-size: 1rem;
+      }
+      
+      .nav-logo {
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .welcome-text {
+        font-size: 1.3rem;
+      }
+      
+      .features {
+        gap: 10px;
+      }
+      
+      .feature {
+        flex: 0 1 90vw;
+        width: 90vw;
+        max-width: 280px;
+        height: 90vw;
+        max-height: 280px;
+      }
+    }
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #ff682c;
+      --gold: #ffc343;
+      --deep-red: #9e2a2a;
+      --dark-bg: #1a1a1a;
+      --light-bg: rgba(255, 255, 255, 0.1);
+      --text: #ffffff;
+      --traditional-gold: #d4af37;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Background video with overlay */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(158, 42, 42, 0.7) 0%, rgba(20, 20, 30, 0.8) 100%);
+      z-index: -1;
+    }
+
+    /* Navigation */
+    .navbar {
+      top: 0;
+      width: 100%;
+      display: flex;
+      position: fixed;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      margin-right: 20px;
+    }
+
+    .logo img {
+      height: 100%;
+      width: auto;
+      filter: drop-shadow(0 0 5px rgba(255, 195, 67, 0.5));
+    }
+
+    .navbar.scrolled .logo {
+      height: 50px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+           font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .welcome-text {
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--text);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: 7rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8);
+      letter-spacing: 3px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero h1::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .hero p {
+      font-size: 1.8rem;
+      opacity: 0.9;
+      color: var(--text);
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--deep-red) 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(255, 104, 44, 0.4);
+      transition: all 0.3s ease;
+           position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--deep-red) 0%, var(--primary) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(255, 104, 44, 0.6);
+    }
+
+    .cta-button:hover::before {
+      opacity: 1;
+    }
+
+    /* Decorative Elements */
+    .decoration {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .decoration-1 {
+      top: 20%;
+      left: 5%;
+      width: 120px;
+      height: 120px;
+      border: 3px solid var(--traditional-gold);
+      opacity: 0.3;
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .decoration-2 {
+      bottom: 30%;
+      right: 5%;
+      width: 100px;
+      height: 100px;
+      background: var(--primary);
+      opacity: 0.2;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      animation: float 10s ease-in-out infinite;
+      filter: blur(2px);
+    }
+
+    .decoration-3 {
+      top: 40%;
+      right: 15%;
+      width: 80px;
+      height: 80px;
+      border: 2px dashed var(--gold);
+      opacity: 0.2;
+      border-radius: 20px;
+      animation: rotate 20s linear infinite;
+    }
+    #app{
+      width: 100%;
+      position: absolute;
+    }
+
+    .decoration-4 {
+      bottom: 20%;
+      left: 10%;
+      width: 60px;
+      height: 60px;
+      background: var(--gold);
+      opacity: 0.15;
+      border-radius: 50%;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .traditional-pattern {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-image: 
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255, 195, 67, 0.1) 10px,
+          rgba(255, 195, 67, 0.1) 20px
+        );
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.15; }
+      50% { transform: scale(1.1); opacity: 0.25; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 5.5rem;
+      }
+      
+      .welcome-text {
+        font-size: 1.8rem;
+      }
+      
+      .decoration-1, .decoration-2, .decoration-3, .decoration-4 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1.2rem;
+      }
+      
+      .logo {
+        height: 50px;
+      }
+      
+      .nav-links {
+        gap: 1.5rem;
+      }
+      
+      .nav-links a {
+        font-size: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 4rem;
+      }
+      
+      .welcome-text {
+        font-size: 1.6rem;
+      }
+      
+      .hero p {
+        font-size: 1.4rem;
+      }
+      
+      .cta-button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .vm {
+        font-size: 1rem;
+      }
+
+      .welcome-text {
+        font-size: 1.3rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+      .navbar{
+        height: 4cm;
+        position: absolute;
+        justify-content: center;
+      }
+      .navbar h3{
+        display: none;
+      }
+
+      .logo {
+        height: 100%;
+      }
+    }
+    .about-image {
+  position: relative;
+  display: inline-block;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+.about-image .fa-youtube {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  color: red;
+  padding: 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  pointer-events: none; /* So clicks go to the link */
+}
+
+.about-image:hover .fa-youtube {
+  transform: translate(-50%, -50%, -50%) scale(1.1.1);
+  color: #ff0000;
+}
+
+
+.mag-link {
+  color: orange;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.mag-link:hover {
+  background: orange;
+  text-decoration-line: underline;
+  color: black;
+}
+
+/* Mobile Menu */
+.menu-button {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px; /* just below navbar */
+  right: 1rem;
+  background: rgba(0,0,0,0.9);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background: var(--gold);
+  color: black;
+}
+.menu-button {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px; /* just below navbar */
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  text-align: right; /* align items to right */
+  padding: 10px 20px;
+  border-radius: 0 0 10px 10px;
+  animation: slideDown 0.3s ease;
+}
+
+.dropdown-menu a {
+  color: white;
+  padding: 15px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 1.2rem;
+}
+
+.dropdown-menu a:hover {
+  background: var(--gold);
+  color: black;
+}
+.desktop-menu{
+  display: flex;
+  position: end;
+}
+
+/* Slide-down animation */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile vs Desktop */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none; /* hide desktop links */
+  }
+  .menu-button {
+    display: block; /* show hamburger */
+    margin-left: auto; /* push it to the right */
+  }
+  .nav-title {
+    text-align: center;
+    flex-grow: 1;
+    font-size: 1rem;
+  }
+    .vm{
+    font-size: 10px;
+  }
+}
+/* Show hamburger and hide desktop menu on small screens */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  .menu-button {
+    display: block;
+  }
+
+}
+
+.navbar{
+display: flex;
+justify-content: space-between;
+}
+ @media (max-width: 992px) {
+      .hero h1 { font-size: 4.5rem; }
+    }
+    @media (max-width: 768px) {
+      .desktop-menu { display: none; }
+      .menu-button { display: block; }
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.2rem; }
+      .about-vivek { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .logo img { height: 40px; }
+      .nav-title { font-size: 0.9rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .image-overlay-text { font-size: 2rem; }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Background video with overlay -->
+  <video autoplay muted loop id="bg-video">
+    <source src="finalbackground.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+ <nav class="navbar" id="navbar">
+  <div class="logo">
+    <img src="logo.png" alt="Agradut Logo">
+    <h3 class="nav-title">Ramakrishna Mission Vidyamandira</h3>
+  </div>
+  
+
+  <!-- Desktop Menu -->
+  <div class="desktop-menu">
+    <a href="https://belurmath.org" class="mag-link">Belur Math</a>
+    <a href="https://vidyamandira.ac.in" class="mag-link">Vidyamandira</a>
+    <a href="#featuresSection" class="mag-link">Magazines</a>
+    <a href="#footer" class="mag-link">About Us</a>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="menu-button" onclick="toggleMenu()" aria-label="Open Menu">
+    <i class="fas fa-bars"></i>
+  </button>
+</nav>
+
+<!-- Mobile Dropdown Menu -->
+<div class="dropdown-menu" id="dropdownMenu">
+  <a href="https://belurmath.org">Belur Math</a>
+  <a href="https://vidyamandira.ac.in">Vidyamandira</a>
+  <a href="#featuresSection">Magazines</a>
+  <a href="#footer">About Us</a>
+</div>
+
+  <!-- Hero Section -->
+  
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="welcome-text">Welcome to</div>
+      <h1 style="font-family:monospace;" class="vm">VIDYAMANDIRA </h1>
+      <p>Puja Magazine - 2025</p>
+    </div>
+    
+    <!-- Decorative Elements -->
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    <div class="decoration decoration-3"></div>
+    <div class="decoration decoration-4"></div>
+  </section>
+
+  <!-- Features Section Wrapper -->
+  <div class="container">
+    <!-- Big Image with Fade Effect -->
+    <div class="big-image-wrapper" >
+      <img src="picture.jpeg" alt="College" class="big-image">
+      <div class="image-overlay">
+        <div class="image-overlay-text">Happy Durgapuja</div>
+      </div>
+      <div class="image-fade"></div>
+    </div>
+
+    <!-- Sentence Under Big Image -->
+    <div class="header-photo-subtext" id="typewriter">
+      <span style="color: #ff682c;">VIDYAMANDIRA PARIWAR WISHES YOU A HAPPY DURGA PUJA</span>
+    </div>
+
+    <!-- Preface Section -->
+    <div class="preface-section">
+      <h2>Preface</h2>
+      <p>
+        Welcome to our College Wall Magazine! Durga Puja, a vibrant celebration of the triumph of good over evil, is a cornerstone of Bengali culture and a significant festival in India, typically observed in the months of September and October. This 10-day festival, known as Shardiya Puja in the autumn season, commemorates the victory of Goddess Durga over the demon Mahishasura, symbolizing the power of divine feminine energy, or 'Shakti'.
+      </p>
+    </div>
+
+    <!-- Features Section (always visible) -->
+    <section class="features" id="featuresSection" >
+      <div class="feature" >
+        <img src="image 1.jpg" alt="Vivek Bhavana">
+        <span style="font-size: 16px;margin-top: 100px; margin-right: 30px;"><a href="index_main.html">Vivek Bhavana</a></span>
+      </div>
+      <div class="feature" >
+        <img src="image 2.jpg" alt="Vinay Bhavana">
+        <span style="font-size: 16px;margin-top: 100px; margin-right: 30px;">Vinay Bhavana</span>
+      </div>
+      <div class="feature" >
+        <img src="imagae 3.webp" alt="Vidya Bhavana"> 
+        <span style="font-size: 16px;margin-top: 100px; margin-right: 30px;">Vidya Bhavana</span>
+      </div>
+      <div class="feature" >
+        <img src="image 4.jpg" alt="Shraddha Bhavana">
+        <span style="font-size: 16px;margin-top: 100px; margin-right: 30px;">Shraddha Bhavana</span>
+      </div>
+      <div class="feature" >
+        <img src="image 5.webp" alt="Shree Bhavana">
+        <span style="font-size: 16px;margin-top: 100px; margin-right: 30px;">Shree Bhavana</span>
+      </div>
+    </section>
+
+    <!-- About Section - Updated layout -->
+    <div class="about-vivek">
+      <div class="about-text">
+        <h3>Durga Puja at Belur Math</h3>
+        <p>
+          Experience the divine celebration of Durga Puja through our special feature video. This video captures the grandeur, devotion, and cultural richness of the festival, bringing you closer to the spirit of Bengal's most awaited occasion.
+        </p>
+      </div>
+      <div class="about-image">
+        <a href="https://youtu.be/xaN_ei11vkI" class="youtube-link">
+          <img src="durga puja.jpg" alt="Durga Puja at Belur Math">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section - Black color -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h2>Contact Us:</h2>
+        <p>Address: Ramakrishna Mission Vidyamandira, Belur Math, Howrah, West Bengal, Pin-711202</p>
+        <p>Phone: 2654-9181 / 2654-9632</p>
+        <p>Email: vidyamandira@gmail.com</p>
+        <a style="text-decoration: none;" href="developers.html"><p style="color:white;   font-family: sans-serif; font-size: 20px;"><b>Developers</b></p></a>
+      </div>
+      <div class="footer-right" > 
+        <img src="logo.png" alt="Logo" class="footer-logo">
+      </div>
+    </div>
+
+      <p align="center" >© 2025 Vidyamandira | All &reg; Rights Reserved</p>
+
+  </footer>
+  </div>
+
+  <script>
+     window.addEventListener('load',()=>{
+    window.scrollTo(0,0);
+     })
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Typewriter effect for header subtext
+  function typeWriter() {
+    const textElement = document.getElementById('typewriter').querySelector('span');
+    const text = textElement.textContent;
+    textElement.textContent = '';
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        textElement.textContent += text.charAt(i);
+        textElement.style.opacity = 1;
+        i++;
+        setTimeout(type, 50); // typing speed
+      } else {
+        setTimeout(() => {
+          textElement.textContent = '';
+          textElement.style.opacity = 0;
+          i = 0;
+          setTimeout(type, 200); // restart typing
+        }, 1500); // pause before restart
+      }
+    }
+    type();
+  }
+
+  // Run typewriter on page load
+  window.onload = typeWriter;
+
+function toggleMenu() {
+  const menu = document.getElementById('dropdownMenu');
+  menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+}
+
+
+        
+  </script>
+</body>
+</html>

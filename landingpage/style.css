@@ -1,0 +1,164 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-top-left {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.header-top-left img {
+  width: 60px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.header-top-left h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+
+
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #a67c00; /* Nobel gold tone */
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Articles Grid */
+.articles a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+article img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+article h2 {
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+article p {
+  font-size: 1rem;
+  color: #555;
+}
+
+article pre {
+  font-size: 1rem;
+  color: #555;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: white;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), 
+    url('media/maa.png');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: white; /* solid white background */
+  padding: 0.5rem 1rem;
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: black; /* black text on white */
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #f0f0f0; /* light grey hover */
+  border-radius: 4px;
+}
+
+.header-center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+header nav {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+  color: #777;
+}
