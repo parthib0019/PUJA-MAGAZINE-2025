@@ -1,0 +1,66 @@
+.spiritual-footer {
+  background: linear-gradient(to right, #fff8e1, #fde2b8); /* soft saffron-beige */
+  color: #4a3423; /* earthy brown */
+  padding: 2.5rem 1.5rem;
+  margin-top: 3rem;
+  border-top: 3px solid #e2b66b; /* saffron accent */
+  font-family: "Noto Serif Bengali", serif;
+}
+
+.spiritual-footer .footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+}
+
+.spiritual-footer .footer-left img {
+  width: 60px;
+  margin-bottom: 0.8rem;
+}
+
+.spiritual-footer .footer-left h3 {
+  margin: 0.3rem 0;
+  color: #b85c38; /* warm terracotta */
+  font-weight: 700;
+}
+
+.spiritual-footer h4 {
+  margin-bottom: 0.8rem;
+  color: #9c4a1a; /* calm spiritual saffron */
+}
+
+.spiritual-footer .footer-center ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.spiritual-footer .footer-center li {
+  margin-bottom: 0.5rem;
+}
+
+.spiritual-footer .footer-center a {
+  color: #4a3423;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.spiritual-footer .footer-center a:hover {
+  color: #b85c38; /* terracotta hover */
+}
+
+.spiritual-footer .footer-right p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .spiritual-footer .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
