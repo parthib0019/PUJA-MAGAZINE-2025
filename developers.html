@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developers - Vidyamandira Puja Magazine</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #ff682c;
+      --gold: #ffc343;
+      --deep-red: #9e2a2a;
+      --dark-bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #ffffff;
+      --text-secondary: #b0b0b0;
+      --traditional-gold: #d4af37;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      background-color: var(--dark-bg);
+    }
+
+    /* Background pattern */
+    .background-pattern {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(255, 104, 44, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 85% 30%, rgba(255, 195, 67, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 50% 80%, rgba(158, 42, 42, 0.03) 0%, transparent 20%);
+      z-index: -1;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      z-index: 1000;
+      background: rgba(18, 18, 18, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 100%;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 120px 2rem 60px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(158, 42, 42, 0.2) 0%, rgba(18, 18, 18, 0.9) 100%);
+    }
+
+    .page-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .page-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Developers Section */
+    .developers-section {
+      padding: 60px 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--gold);
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .developers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .developer-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .developer-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .developer-image {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .developer-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .developer-card:hover .developer-image img {
+      transform: scale(1.05);
+    }
+
+    .developer-info {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .developer-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .developer-role {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .contributions-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.5rem;
+    }
+
+    .contributions-list {
+      list-style-type: none;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .contributions-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    .contributions-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--text);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    .footer {
+      background: #0a0a0a;
+      padding: 60px 2rem 30px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      width: 120px;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-nav a:hover {
+      color: var(--gold);
+    }
+
+    .copyright {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Back to Home Button */
+    .back-to-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 3rem;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-home:hover {
+      gap: 0.8rem;
+      color: var(--primary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1.2rem;
+      }
+      
+      .nav-links {
+        gap: 1.5rem;
+      }
+      
+      .nav-links a {
+        font-size: 1rem;
+      }
+      
+      .page-title {
+        font-size: 2.5rem;
+      }
+      
+      .page-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .developers-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .developer-image {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      .page-header {
+        padding: 140px 1rem 40px;
+      }
+      
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .developer-info {
+        padding: 1.5rem;
+      }
+      
+      .developer-name {
+        font-size: 1.5rem;
+      }
+      
+      .footer-nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background pattern -->
+  <div class="background-pattern"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="landingPageMedia/logo.png" alt="Agradut Logo">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#developers">About Us</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1 class="page-title">Our Developers</h1>
+    <p class="page-subtitle">Meet the talented individuals who brought the Vidyamandira Puja Magazine to life with their creativity and technical expertise.</p>
+  </header>
+
+  <!-- Developers Section -->
+  <section class="developers-section" id="developers">
+    <h2 class="section-title">Development Team</h2>
+    
+    <div class="developers-grid">
+      <!-- Developer 1 -->
+      <div class="developer-card">
+        <div class="developer-image">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Rajesh Sharma">
+        </div>
+        <div class="developer-info">
+          <h3 class="developer-name">Parthib Ghosh</h3>
+          
+          
+          <h4 class="contributions-title">Contributions</h4>
+          <ul class="contributions-list">
+            <li>Designed the overall website layout and user interface</li>
+            <li>Implemented responsive design for all screen sizes</li>
+            <li>Developed the interactive elements and animations</li>
+            <li>Integrated video background and visual effects</li>
+            <li>Optimized website performance and loading times</li>
+          </ul>
+          
+          <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Developer 2 -->
+      <div class="developer-card">
+        <div class="developer-image">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Priya Patel">
+        </div>
+        <div class="developer-info">
+          <h3 class="developer-name">Priya Patel</h3>
+          <p class="developer-role">Backend Developer & Content Manager</p>
+          
+          <h4 class="contributions-title">Contributions</h4>
+          <ul class="contributions-list">
+            <li>Developed the backend infrastructure and database</li>
+            <li>Implemented content management system</li>
+            <li>Optimized website security and data protection</li>
+            <li>Integrated multimedia content and resources</li>
+            <li>Managed project deployment and hosting</li>
+          </ul>
+          
+          <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer 3 -->
+      <div class="developer-card">
+        <div class="developer-image">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Amit Kumar">
+        </div>
+        <div class="developer-info">
+          <h3 class="developer-name">Amit Kumar</h3>
+          <p class="developer-role">Full Stack Developer</p>
+          
+          <h4 class="contributions-title">Contributions</h4>
+          <ul class="contributions-list">
+            <li>Implemented user authentication system</li>
+            <li>Developed API integrations</li>
+            <li>Created dynamic content rendering system</li>
+            <li>Optimized database queries and performance</li>
+            <li>Assisted in troubleshooting and bug fixes</li>
+          </ul>
+          
+          <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-to-home">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="landingPageMedia/logo.png" alt="Agradut Logo" class="footer-logo">
+      
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="#developers">Developers</a>
+        <a href="#">Magazine</a>
+        <a href="#">Contact</a>
+      </nav>
+      
+      <p class="copyright">© 2025 Agradut Puja Magazine. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

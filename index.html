@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agradut - Puja Magazine 2025</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --primary: #ff682c;
+      --gold: #ffc343;
+      --dark-bg: #1a1a1a;
+      --light-bg: rgba(255, 255, 255, 0.1);
+      --text: #ffffff;
+      --deep-red: #9e2a2a;
+    }
+    body {
+      height: 100%;
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+    .video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        z-index: -1;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      transition: background-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo img {
+      height: 50px;
+      transition: height 0.3s ease;
+    }
+    .navbar.scrolled .nav-logo img {
+      height: 40px;
+    }
+    .nav-logo h3 {
+      color: var(--text);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .hero-content {
+      max-width: 1200px;
+      z-index: 2;
+    }
+    .welcome-text {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    .hero h1 {
+      font-size: 6.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    }
+    .hero p {
+      font-size: 1.8rem;
+    }
+
+    /* Main Container */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 32px;
+      overflow: hidden;
+    }
+    .big-image-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .big-image {
+      width: 100%;
+      display: block;
+      opacity: 0.85;
+    }
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .image-overlay-text {
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+    .header-photo-subtext {
+      width: 90%;
+      text-align: center;
+      margin: 40px 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .preface-section {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 30px;
+      background: var(--light-bg);
+      border-radius: 20px;
+    }
+    .preface-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .preface-section p {
+      text-align: justify;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .pie-chart-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    .center-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--primary);
+    }
+    .center-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #bhavana-hover-card {
+        position: fixed;
+        visibility: hidden;
+        opacity: 0;
+        width: 220px;
+        background: rgba(26, 26, 26, 0.85);
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        transition: opacity 0.3s ease, visibility 0s 0.3s;
+        z-index: 1001;
+        pointer-events: none;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    #bhavana-hover-card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+    }
+    #bhavana-hover-card p {
+        text-align: center;
+        padding: 12px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--gold);
+        text-transform: capitalize;
+    }
+    .about-vivek {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 20px;
+      width: 90%;
+      max-width: 900px;
+    }
+    .about-text {
+      flex: 1;
+      min-width: 250px;
+    }
+    .about-vivek h3 {
+      color: var(--gold);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .about-vivek p {
+      text-align: justify;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .about-image {
+      flex: 1;
+      min-width: 250px;
+    }
+    .about-vivek img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    footer {
+      background: #000000;
+      padding: 60px 0 30px 0;
+      margin-top: 60px;
+      width: 100%;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      gap: 40px;
+    }
+    .footer-left {
+      flex: 1;
+      min-width: 250px;
+    }
+    .footer-left h2 {
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+    .footer-right {
+      flex: 1;
+      min-width: 250px;
+      text-align: right;
+    }
+    .footer-logo {
+      width: 180px;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 5rem; }
+      .welcome-text { font-size: 2rem; }
+      .image-overlay-text { font-size: 3.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        padding-top: 5rem;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+      .hero h1 { font-size: 3.5rem; }
+      .welcome-text { font-size: 1.8rem; }
+      .hero p { font-size: 1.4rem; }
+      .image-overlay-text { font-size: 2.5rem; }
+      .about-vivek, .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-right { text-align: center; }
+      .nav-logo h3 { display: none; }
+    }
+    /* Fix: Show the nav-logo h3 on mobile */
+    @media (max-width: 768px) {
+      .nav-logo h3 {
+        display: block !important;
+        font-size: 1rem;
+        white-space: normal; /* allow wrapping */
+        overflow: visible;
+        text-overflow: clip;
+        max-width: none;
+        line-height: 1.2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.8rem; }
+      .welcome-text { font-size: 1.5rem; }
+      .container { width: 95%; }
+      .preface-section, .about-vivek { padding: 20px; }
+      .header-photo-subtext h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="video-overlay"></div>
+    <video autoplay muted loop id="bg-video">
+      <source src="landingPageMedia/finalbackground.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">
+          <img src="landingPageMedia/logo.png" alt="Agradut Logo">
+          <h3>Ramakrishna Mission Vidyamandira</h3>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="https://belurmath.org/">Belur Math</a></li>
+        <li><a href="https://vidyamandira.ac.in/">Vidyamandira</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="welcome-text">Welcome to</div>
+        <h1 style="font-family:monospace;">VIDYAMANDIRA</h1>
+        <p>Puja Magazine - 2025</p>
+      </div>
+    </section>
+
+    <main class="container">
+        <div class="big-image-wrapper">
+          <img src="landingPageMedia/picture.jpeg" alt="College" class="big-image">
+          <div class="image-overlay">
+            <div class="image-overlay-text">Happy Durgapuja</div>
+          </div>
+        </div>
+
+        <div class="header-photo-subtext" id="typewriter">
+          <span style="color: #ff682c;">VIDYAMANDIRA PARIWAR WISHES YOU A HAPPY DURGA PUJA</span>
+        </div>
+
+        <div class="preface-section">
+          <h2>Preface</h2>
+          <p>
+            Welcome to our College Wall Magazine! Durga Puja, a vibrant celebration of the triumph of good over evil, is a cornerstone of Bengali culture and a significant festival in India...
+          </p>
+        </div>
+
+        <div class="pie-chart-container">
+            <canvas id="bhavanaChart" width="400" height="400"></canvas>
+            <div class="center-logo">
+              <a href="https://vidyamandira.ac.in/"><img src="landingPageMedia/logo.png" alt="Logo"></a>
+            </div>
+        </div>
+
+        <div class="about-vivek">
+          <div class="about-text">
+            <h3>Durga Puja at Belur Math</h3>
+            <p>
+              Experience the divine celebration of Durga Puja through our special feature video. This video captures the grandeur, devotion, and cultural richness of the festival...
+            </p>
+          </div>
+          <div class="about-image">
+            <a href="https://youtu.be/xaN_ei11vkI">
+              <img src="landingPageMedia/durga puja.jpg" alt="Durga Puja at Belur Math">
+            </a>
+          </div>
+        </div>
+    </main>
+    
+    <div id="bhavana-hover-card">
+        <img id="bhavana-img" src="" alt="Bhavana Image">
+        <p id="bhavana-name"></p>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <h2>Contact Us:</h2>
+          <p>Ramakrishna Mission Vidyamandira, Belur Math, Howrah, West Bengal, Pin-711202</p>
+          <p>Phone: 2654-9181 / 2654-9632</p>
+          <p>Email: vidyamandira@gmail.com</p>
+          <a href="developers.html"><h2 style="color:white;"><u>Developers</u></h2></a>
+        </div>
+        <div class="footer-right"> 
+          <img src="landingPageMedia/logo.png" alt="Logo" class="footer-logo">
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Agradut | All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    // FIXED: Changed 'window' to 'document' to catch the scroll event reliably.
+    document.addEventListener('scroll', function() {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Typewriter effect
+    function typeWriter() {
+      const textElement = document.getElementById('typewriter').querySelector('span');
+      const text = textElement.textContent;
+      let i = 0;
+      textElement.textContent = '';
+      function type() {
+        if (i < text.length) {
+          textElement.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, 50);
+        } else {
+          setTimeout(() => { i = 0; textElement.textContent = ''; setTimeout(type, 200); }, 2500);
+        }
+      }
+      type();
+    }
+    window.onload = typeWriter;
+
+    // Pie Chart for Bhavanas
+    const ctx = document.getElementById('bhavanaChart').getContext('2d');
+    const imageSources = ['landingPageMedia/image 1.jpg', 'landingPageMedia/image 2.jpg', 'landingPageMedia/imagae 3.webp', 'landingPageMedia/image 4.jpg', 'landingPageMedia/image 5.webp'];
+    const labels = ['vivek', 'vinay', 'shraddha', 'vidya', 'shree'];
+    const loadedImages = [];
+    let imagesLoaded = 0;
+
+    imageSources.forEach((src, index) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loadedImages[index] = img;
+        imagesLoaded++;
+        if (imagesLoaded === imageSources.length) {
+          initializeChart();
+        }
+      };
+      img.onerror = () => { 
+        const fallbackImg = new Image();
+        fallbackImg.src = 'https://via.placeholder.com/400?text=Image+Not+Found';
+        fallbackImg.onload = () => {
+            loadedImages[index] = fallbackImg;
+            imagesLoaded++;
+            if (imagesLoaded === imageSources.length) {
+                initializeChart();
+            }
+        };
+      };
+    });
+    
+    function createPatternWithText(img, text) {
+        const patternCanvas = document.createElement('canvas');
+        const size = 400;
+        patternCanvas.width = size;
+        patternCanvas.height = size;
+        const pctx = patternCanvas.getContext('2d');
+
+        if (img) {
+            pctx.drawImage(img, 0, 0, size, size);
+        } else {
+            pctx.fillStyle = 'grey';
+            pctx.fillRect(0, 0, size, size);
+        }
+        return pctx.createPattern(patternCanvas, 'no-repeat');
+    }
+
+    function initializeChart() {
+      const patterns = loadedImages.map((img, idx) => createPatternWithText(img, labels[idx]));
+      const hoverCard = document.getElementById('bhavana-hover-card');
+      const cardImage = document.getElementById('bhavana-img');
+      const cardName = document.getElementById('bhavana-name');
+
+      let shraddhaRotation = 0;
+      const customLabelsPlugin = {
+          id: 'customLabelsPlugin',
+          afterDraw(chart) {
+              const {ctx, chartArea: {top, bottom, left, right, width, height}} = chart;
+              const centerX = (left + right) / 2;
+              const centerY = (top + bottom) / 2;
+              const radius = Math.min(width, height) / 2;
+              const innerRadius = radius * 0.5;
+              ctx.save();
+              ctx.fillStyle = 'white';
+              ctx.font = 'bold 16px Arial';
+              ctx.textBaseline = 'middle';
+              ctx.textAlign = 'center';
+              for (let i = 0; i < labels.length; i++) {
+                  const angle = (chart.getDatasetMeta(0).data[i].startAngle + chart.getDatasetMeta(0).data[i].endAngle) / 2;
+                  const labelRadius = (innerRadius + radius) / 2;
+                  const x = centerX + Math.cos(angle) * labelRadius;
+                  const y = centerY + Math.sin(angle) * labelRadius;
+                  ctx.save();
+                  ctx.translate(x, y);
+                  if (labels[i] === 'shraddha') {
+                      ctx.rotate(shraddhaRotation);
+                  } else {
+                      ctx.rotate(angle + Math.PI / 2);
+                  }
+                  ctx.shadowColor = 'black';
+                  ctx.shadowBlur = 5;
+                  ctx.fillText(labels[i].charAt(0).toUpperCase() + labels[i].slice(1), 0, 0);
+                  ctx.restore();
+              }
+              ctx.restore();
+              shraddhaRotation = 0; 
+          }
+      };
+
+      const bhavanaChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: [20, 20, 20, 20, 20],
+            backgroundColor: patterns,
+            borderColor: 'rgba(0,0,0,0.5)',
+            borderWidth: 3,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '50%',
+          hover: {
+            mode: 'nearest',
+            intersect: true
+          },
+          onHover: (event, chartElement) => {
+              if (chartElement.length) {
+                  const index = chartElement[0].index;
+                  cardName.innerText = labels[index];
+                  cardImage.src = loadedImages[index].src;
+                  hoverCard.style.left = `${event.native.clientX + 15}px`;
+                  hoverCard.style.top = `${event.native.clientY + 15}px`;
+                  hoverCard.style.visibility = 'visible';
+                  hoverCard.style.opacity = '1';
+                  hoverCard.style.transform = 'scale(1.05)';
+                  hoverCard.style.transition = 'opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s';
+              } else {
+                  hoverCard.style.opacity = '0';
+                  hoverCard.style.transform = 'scale(1)';
+                  hoverCard.style.visibility = 'hidden';
+                  hoverCard.style.transition = 'opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s';
+              }
+          },
+          onClick: function(evt, activeEls) {
+            if (activeEls.length > 0) {
+              const index = activeEls[0].index;
+              const urls = {
+                vivek: 'bhavan-page/vivek/index.html',
+                vinay: 'https://example.com/vinay',
+                shraddha: 'https://example.com/shraddha',
+                vidya: 'https://example.com/vidya',
+                shree: 'https://example.com/shree'
+              };
+              const label = labels[index].toLowerCase();
+              const url = urls[label] || 'https://example.com';
+              window.open(url, '_blank');
+            }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: { enabled: false }
+          }
+        },
+        plugins: [customLabelsPlugin]
+      });
+    }
+  </script>
+</body>
+</html>
