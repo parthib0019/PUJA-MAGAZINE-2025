@@ -8,6 +8,11 @@
   <title>A Philosophical Lens on Durga Puja</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../footer.css" />
+  <!-- Font Awesome CDN -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
   <style>
     /* ----- HEADER ----- */
     header {
@@ -87,6 +92,40 @@
     .back-link:hover {
       color: #704c00;
     }
+       .share-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Adds space between icon and text */
+  padding: 10px 18px;
+  background-color: #f7f7f7;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.share-button:hover {
+  background-color: #e9e9e9;
+  border-color: #a67c00;
+  color: #a67c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.share-button svg {
+  width: 20px;
+  height: 20px;
+  transition: stroke 0.3s ease;
+}
+
+.share-button:hover svg {
+  stroke: #a67c00; /* Changes SVG color on hover */
+}
   </style>
   <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../footer.css" />
@@ -114,10 +153,41 @@
 
 <main class="article-container">
   <h2>A Philosophical Lens on Durga Puja</h2>
-  <p class="article-meta">Sayantan Pahari,Chemistry (UG 1)</p>
+  <p class="article-meta">Sayantan Pahari,Chemistry (UG 1)  <button id="shareButton" class="share-button" title="Share this article">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="feather feather-share-2"
+  >
+    <circle cx="18" cy="5" r="3"></circle>
+    <circle cx="6" cy="12" r="3"></circle>
+    <circle cx="18" cy="19" r="3"></circle>
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+  </svg>
+  <span>Share</span>
+</button></p>
   
-  <img src="../../media/happiness.webp" alt="puja">
-
+  <img src="../../media/sayantan.jpg" alt="puja">
+  <div class="custom-audio-player">
+    <audio id="article-audio" src="../../media/example.mp3"></audio>
+    
+    <button id="play-pause-btn" class="player-btn">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <div class="progress-and-time">
+        <div id="player-progress-container" class="player-progress-container">
+            <div id="player-progress" class="player-progress"></div>
+        </div>
+        <div id="time-display" class="time-display">0:00 / 0:00</div>
+    </div>
+</div>
 
     <p>Durga Puja, a vibrant festival celebrating the goddess Durga, can be interpreted through the lens of Western philosophy, offering profound insights into human existence and societal values</p>
     <p>From a Nietzschean perspective, the festival is a powerful affirmation of life and the human spirit. The celebration, with its ecstatic rituals, loud music, and joyous pandal hopping, embodies the Dionysian spirit—a triumph of passion, emotion, and creativity over a sterile, rational existence. Durga Puja embodies Nietzschean will-to-power and the Absurd's heroic defiance. The festival's fleeting beauty and joyful rebellion against meaninglessness affirm human existence, transforming temporary idols into a profound celebration of life.</p>
@@ -130,7 +200,7 @@
 
 
 
-  <a href="index.html" class="back-link">&larr; Back to This Year’s Articles</a>
+  <a href="../../index.html" class="back-link">&larr; Back to This Year’s Articles</a>
 </main>
 
 <footer class="spiritual-footer">
@@ -139,7 +209,7 @@
     <!-- Left -->
     <div class="footer-left">
       <img src="../../media/rkm-removebg-preview.png" alt="RKMVM Logo">
-      <h3>প্রয়াস - বিবেক ভবন</h3>
+      <!-- <h3>প্রয়াস - বিবেক ভবন</h3> -->
       <p>&copy; 2025 Ramakrishna Mission Vidyamandira</p>
     </div>
 
@@ -162,6 +232,107 @@
 
   </div>
 </footer>
+
+<script>
+   const handleShare = async () => {
+    const url = window.location.href;
+    const title = document.querySelector('h2').textContent;
+    const text = `Check out this article: ${title}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          text: text,
+          url: url,
+        });
+      } catch (err) {
+        console.error('Error sharing:', err);
+        // Fallback to copy
+        try {
+          await navigator.clipboard.writeText(url);
+          alert('Link copied to clipboard!');
+        } catch (copyErr) {
+          console.error('Failed to copy:', copyErr);
+          alert('Sharing not supported. Please copy the URL manually.');
+        }
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(url);
+        alert('Link copied to clipboard!');
+      } catch (err) {
+        console.error('Failed to copy:', err);
+        alert('Sharing not supported. Please copy the URL manually.');
+      }
+    }
+  };
+  document.getElementById('shareButton').addEventListener('click', handleShare);
+ const audio = document.getElementById('article-audio');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = '<i class="fas fa-play"></i>';
+    const pauseIcon = '<i class="fas fa-pause"></i>';
+    
+    const progressContainer = document.getElementById('player-progress-container');
+    const progress = document.getElementById('player-progress');
+    const timeDisplay = document.getElementById('time-display');
+
+    // Function to toggle play and pause
+    function togglePlayPause() {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.innerHTML = pauseIcon;
+        } else {
+            audio.pause();
+            playPauseBtn.innerHTML = playIcon;
+        }
+    }
+
+    // Function to format time from seconds to MM:SS
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    // Function to update the progress bar and time display
+    function updateProgress() {
+        const { duration, currentTime } = audio;
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        
+        // Update time display if duration is a valid number
+        if (!isNaN(duration)) {
+             timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+        }
+    }
+
+    // Function to set the audio's current time when progress bar is clicked
+    function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    }
+
+    // Event Listeners
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    audio.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
+
+    // Reset icon when audio finishes
+    audio.addEventListener('ended', () => {
+        playPauseBtn.innerHTML = playIcon;
+        progress.style.width = '0%';
+    });
+    
+    // Set initial duration when metadata loads
+    audio.addEventListener('loadedmetadata', () => {
+        updateProgress();
+    });
+
+
+</script>
 
 </body>
 </html>

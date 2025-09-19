@@ -13,9 +13,7 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
-
   <style>
-    
     /* ----- HEADER ----- */
     header {
       text-align: center;
@@ -94,8 +92,7 @@
     .back-link:hover {
       color: #704c00;
     }
-    /*share*/
-    .share-button {
+       .share-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,103 +126,6 @@
 .share-button:hover svg {
   stroke: #a67c00; /* Changes SVG color on hover */
 }
-/* ----- CUSTOM AUDIO PLAYER (ENHANCED) ----- */
-.custom-audio-player {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: linear-gradient(145deg, #f9f9f9, #e6e6e6); /* Subtle gradient background */
-    padding: 0.75rem 1rem;
-    border-radius: 50px; /* Pill shape */
-    margin: 2rem 0;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Softer, more pronounced shadow */
-}
-
-.player-btn {
-    background-color: #c93e07;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 45px; /* Slightly larger button */
-    height: 45px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0; /* Prevents button from shrinking */
-    box-shadow: 0 2px 5px rgba(166, 61, 0, 0.4);
-    transition: all 0.3s ease;
-}
-
-.player-btn:hover {
-    background-color: #702000;
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(112, 41, 0, 0.5);
-}
-
-/* This is the key change for centering */
-.progress-and-time {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Space between progress bar and time */
-    width: 100%;
-}
-
-.player-progress-container {
-    background: #dcdcdc;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 10px; /* Thicker bar */
-    width: 100%;
-    flex-grow: 1; /* Allows the bar to take up available space */
-    transition: height 0.2s ease;
-}
-
-/* Hover effect for the progress container */
-.player-progress-container:hover {
-    height: 12px; /* Bar gets slightly thicker on hover */
-}
-
-.player-progress {
-    background-color: #c93e07;
-    border-radius: 5px;
-    height: 100%;
-    width: 0%;
-    position: relative; /* Needed for the thumb pseudo-element */
-    transition: width 0.1s linear;
-}
-
-/* --- The new "thumb" on the progress bar --- */
-.player-progress::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(50%, -50%);
-    width: 18px; /* Thumb size */
-    height: 18px;
-    background: #fff;
-    border-radius: 50%;
-    border: 3px solid #c93e07;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.custom-audio-player:hover .player-progress::after {
-    opacity: 1; /* Show thumb when hovering the player */
-}
-
-.time-display {
-    font-size: 0.9rem;
-    color: #333;
-    font-family: monospace; /* Monospaced font for clean time display */
-    font-weight: bold;
-    min-width: 90px; /* Prevents layout shift as time changes */
-    text-align: center;
-}
   </style>
   <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../footer.css" />
@@ -252,8 +152,8 @@
   </header>
 
 <main class="article-container">
-  <h2>Imagine: Happiness</h2>
-  <p class="article-meta">Aranya Mondal, UG-1, Department of English  <button id="shareButton" class="share-button" title="Share this article">
+  <h2>উন্মোচন</h2>
+  <p class="article-meta">-সূর্য মাল,পদার্থবিদ্যা,স্নাতক প্রথম বর্ষ  <button id="shareButton" class="share-button" title="Share this article">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -272,10 +172,9 @@
   </svg>
   <span>Share</span>
 </button></p>
-  <img src="../../media/happiness.webp" alt="puja">
-
- <!-- /* ----- audio ----- */ -->
-   <div class="custom-audio-player">
+  
+  <img src="../../media/surja.jpg" alt="puja">
+  <div class="custom-audio-player">
     <audio id="article-audio" src="../../media/example.mp3"></audio>
     
     <button id="play-pause-btn" class="player-btn">
@@ -290,18 +189,12 @@
     </div>
 </div>
 
+    <p>মহালয়ার আগের দিন। স্বভাবতই আকাশ নীল, তার মাঝে সাদা মেঘ, বাতাসে শিউলির গন্ধ, মৃদুমন্দ হাওয়া দোলা দিয়ে যায় কাশের বনে। চারিদিকেই শান্তির পরশ, শুধু শান্তি নেই পঞ্চকের মনে। পঞ্চক বড়ই কৌতূহলী ও জিজ্ঞাসু ছেলে। মায়ের কাছে আজ সে মা দুর্গার স্বরূপ জানতে চায়; কিন্তু উত্তরের সে সন্তুষ্ট হয় না। হাজারো কল্পনা মাথায় নিয়ে সে ঘুমিয়ে পড়ে। কিন্তু তারপরেই একটা অদ্ভুত কান্ড ঘটে। চোখ খুলতেই পঞ্চক নিজেকে খুঁজে পায় এক অচেনা জায়গায়, যেখানে আকাশের রং লাল, গাছের পাতা নীল, মাটি সবুজাভ। বুঝতে পারে এ পৃথিবী নয়। ভয় পেয়ে যায় সে। ঠিক তখনই কেউ তার পিছন থেকে কাঁধে হাত দিয়ে বলে,"ভয় পাচ্ছ কেন?" সে পিছন ফিরে দেখে তার সামনে দাঁড়িয়ে তারই সমবয়সী একটি মেয়ে। পঞ্চক বলে,"কে তুমি?" উত্তরে মেয়েটি বলে,"অতশত জেনে লাভ নেই, আজ আমাদের এখানে দুর্গাপুজো আছে। চলো সেখানে, খুব মজা হবে।" পঞ্চকের মনে কৌতুহল দানা বাঁধে, তাই সে আপত্তি করে না। পূজার স্থলে পৌঁছে পঞ্চক অবাক হয়ে যায়। মণ্ডপে কোন বাহ্যিক আভিজাত্য নেই, তবুও কেমন যেন একটা আপনার গন্ধ রয়েছে। কিন্তু প্রতিমা দেখে সে চমকে যায়। সে জিজ্ঞাসা করে,"তুমি বললে এখানে দুর্গাপূজা হচ্ছে, কিন্তু তা কি করে হয়? দুর্গা ঠাকুর তো এমন দেখতে হয় না।" মেয়েটি বলে,"তাতে কী এসে যায়? মা তো জগতের প্রতিটি কণায় রয়েছেন; এ জগত তো তাঁরই সৃষ্টি। তাঁর ইচ্ছা ছাড়া এ জগতে গাছের একটি পাতাও নড়ে না। মা চেয়েছেন বলেই না আজ এখানে তাঁর আরাধনা হচ্ছে। তা তুমি কিভাবে তাঁকে এই মূর্তির মধ্যে আটকে রাখবে? মূর্তি তো কেবল উপলক্ষ মাত্র, শুদ্ধ মনে তুমি যেখান থেকেই ডাকো না কেন, মা ঠিক সাড়া দেবেন..." চোখ খুলে যায় পঞ্চকের। উৎসাহে চেঁচিয়ে উঠে সে বলে,"এইতো উত্তর পেয়েছি!" "কী উত্তর?",মেয়েটি জিজ্ঞাসা করে। পঞ্চক বলে,"সে সব জেনে তোমার লাভ নেই..., আচ্ছা তোমার নাম কী বলতো?" মেয়েটি হেঁসে বলে,"আমার নাম দুর্গা। আর হ্যাঁ আমি কিন্তু জানি তুমি কীসের উত্তর পেয়েছ..." তখনই মায়ের ডাকে ঘুম ভেঙে যায় পঞ্চকের। আবার সে পৃথিবীতে ফিরে আসে। সে শুনতে পায়, নতুন ভোরের আলোর মতোই চারিদিকে ছড়িয়ে পড়ছে মহালয়ার সুর।</p>
 
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus eligendi reiciendis ad id a fuga facilis, quam eum voluptate dicta quae impedit consequuntur iste rem hic, autem dignissimos veniam? Perspiciatis.</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit minus modi harum consequatur laborum aliquam ipsa quia omnis quod quis delectus eos aperiam odit magnam mollitia necessitatibus a, cum dolore.</p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
     
 
 
+    <audio src="media/prithwi (1).mp3"></audio>
 
 
 
@@ -337,6 +230,7 @@
 
   </div>
 </footer>
+
 <script>
    const handleShare = async () => {
     const url = window.location.href;
@@ -372,11 +266,7 @@
     }
   };
   document.getElementById('shareButton').addEventListener('click', handleShare);
-
-
-
-    // --- Custom Audio Player Logic ---
-    const audio = document.getElementById('article-audio');
+ const audio = document.getElementById('article-audio');
     const playPauseBtn = document.getElementById('play-pause-btn');
     const playIcon = '<i class="fas fa-play"></i>';
     const pauseIcon = '<i class="fas fa-pause"></i>';
@@ -440,9 +330,7 @@
     });
 
 
-
-
-
 </script>
+
 </body>
 </html>

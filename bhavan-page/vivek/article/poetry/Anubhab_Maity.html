@@ -5,9 +5,14 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prayash @ 2025</title>
+  <title>সান্নিধ্য</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../footer.css" />
+  <!-- Font Awesome CDN -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
   <style>
     /* ----- HEADER ----- */
     header {
@@ -148,13 +153,55 @@
   </header>
 
 <main class="article-container">
-  <h2>Imagine: Happiness</h2>
-  <p class="article-meta">Aranya Mondal, UG-1, Department of English</p>
+  <h2>সান্নিধ্য</h2>
+  <p class="article-meta">অনুভব মাইতি, প্রথম বর্ষ, বাণিজ্য রসায়ন বিভাগ<button id="shareButton" class="share-button" title="Share this article">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="feather feather-share-2"
+  >
+    <circle cx="18" cy="5" r="3"></circle>
+    <circle cx="6" cy="12" r="3"></circle>
+    <circle cx="18" cy="19" r="3"></circle>
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+  </svg>
+  <span>Share</span>
+</button></p>
   
-  <img src="../../media/happiness.webp" alt="puja">
+  <img src="../../media/anubhab.jpg" alt="puja">
+  <div class="custom-audio-player">
+    <audio id="article-audio" src="../../media/example.mp3"></audio>
+    
+    <button id="play-pause-btn" class="player-btn">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <div class="progress-and-time">
+        <div id="player-progress-container" class="player-progress-container">
+            <div id="player-progress" class="player-progress"></div>
+        </div>
+        <div id="time-display" class="time-display">0:00 / 0:00</div>
+    </div>
+</div>
 
-
-    <p></p>
+    <p>নবীন ঊষায় কে যেন জাগিয়াছে<br>
+    &emsp;&emsp;&emsp;ওরে ঐ তো ওরা<br>
+নির্মল হস্তে জগতের ও সোপান ধরিয়াছে ;<br>
+আঁধারেরও বিভীষিকায় জাগিয়াছে প্রাণের ধ্বনি<br>
+    &emsp;&emsp;&emsp;&emsp;চাহিয়া দেখ -<br>
+ওদেরও নয়নে মায়েরও ত্রিনয়ের প্রজ্জ্বলনি,<br>
+এখনও তো ধ্বনিত হয় লাঞ্ছিত প্রাণের স্পন্দন<br>
+    &emsp;&emsp;&emsp;শোনো, শোনা যায়-<br>
+মহামানবের কোলে সমাদ্রিত হয় স্বপ্নশিশুর ক্রন্দন ;<br>
+এ তমসা হতে মুক্ত হইতে কারই বা আছে সাধ্য?<br>
+    &emsp;&emsp;&emsp;নীল দিগন্তে চাহিয়া আছি -<br>
+উপায় তো আর নেই, আছে শুধু মায়ের সান্নিধ্য।</p>
     <p></p>
     <p></p>
     <p></p>
@@ -178,7 +225,7 @@
     <!-- Left -->
     <div class="footer-left">
       <img src="../../media/rkm-removebg-preview.png" alt="RKMVM Logo">
-      <h3>প্রয়াস - বিবেক ভবন</h3>
+      <!-- <h3>প্রয়াস - বিবেক ভবন</h3> -->
       <p>&copy; 2025 Ramakrishna Mission Vidyamandira</p>
     </div>
 
@@ -236,6 +283,70 @@
     }
   };
   document.getElementById('shareButton').addEventListener('click', handleShare);
+ const audio = document.getElementById('article-audio');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = '<i class="fas fa-play"></i>';
+    const pauseIcon = '<i class="fas fa-pause"></i>';
+    
+    const progressContainer = document.getElementById('player-progress-container');
+    const progress = document.getElementById('player-progress');
+    const timeDisplay = document.getElementById('time-display');
+
+    // Function to toggle play and pause
+    function togglePlayPause() {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.innerHTML = pauseIcon;
+        } else {
+            audio.pause();
+            playPauseBtn.innerHTML = playIcon;
+        }
+    }
+
+    // Function to format time from seconds to MM:SS
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    // Function to update the progress bar and time display
+    function updateProgress() {
+        const { duration, currentTime } = audio;
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        
+        // Update time display if duration is a valid number
+        if (!isNaN(duration)) {
+             timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+        }
+    }
+
+    // Function to set the audio's current time when progress bar is clicked
+    function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    }
+
+    // Event Listeners
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    audio.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
+
+    // Reset icon when audio finishes
+    audio.addEventListener('ended', () => {
+        playPauseBtn.innerHTML = playIcon;
+        progress.style.width = '0%';
+    });
+    
+    // Set initial duration when metadata loads
+    audio.addEventListener('loadedmetadata', () => {
+        updateProgress();
+    });
+
+
 </script>
 </body>
 </html>

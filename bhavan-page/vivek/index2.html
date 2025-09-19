@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prayas@2025</title>
+  <link rel="stylesheet" href="footer.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/webp" href="media/rkm-removebg-preview.png" />
+
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header Styling */
+    header {
+      background: url('media/maa.png') no-repeat center center;
+      background-size: cover;
+      height: 500px;
+      width: 100%;
+      position: relative;
+      padding: 0;
+      margin: 0;
+    }
+    .header-top-left {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    .header-top-left img {
+      width: 60px;
+      height: auto;
+      margin-right: 1rem;
+    }
+    .header-top-left h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 0;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .header-center-text {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+    .header-center-text h2 {
+      color: #fff;
+      margin: 0.5rem 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      font-size: 1.8rem;
+    }
+    .header-center-text h1 {
+      color: #fff;
+      margin: 0.5rem 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    header nav {
+      text-align: center;
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1rem;
+      
+    }
+    header nav ul li {
+      display: inline-block;
+      margin: 0;
+    }
+    header nav ul li a {
+      text-decoration: none;
+      color: #2e2e2e;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.7rem 1.6rem;
+      border-radius: 6px;
+      border: 2px solid #fff;
+      transition: background 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+    header nav ul li a:hover {
+      color: #fff;
+      background: #ed9f29;
+      border-color: #ed9f29;
+    }
+    header nav ul li a.active {
+      color: #fff;
+      background: #d65917;
+      border-color: #d65917;
+      font-weight: 700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to bottom, #ffd992, #ffffff);
+      padding: 40px 2rem;
+      text-align: left;
+      border-top: 4px solid black;
+      border-bottom: 4px solid black;
+      max-width: 2000px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #2e2e2e;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      max-width: 1890px;
+      margin: 0.8rem 0;
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.7;
+      text-align: justify;
+    }
+    .hero-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+    }
+    .hero-text {
+      flex: 2;
+    }
+    .hero-image {
+      flex: 1;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Article Grid with Fluid Layout */
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+      width: 100%;
+      margin: 0 auto;
+      max-width: 1300px;
+    }
+    .articles article {
+      background: linear-gradient(135deg, #ffd992, #ed9f29);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 200px;
+      width: 100%;
+      padding: 1rem;
+    }
+    .articles article:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .articles article.hidden {
+      display: none;
+    }
+    .articles img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .articles .text-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+    .articles h3 {
+      font-size: 1.1rem;
+      margin: 0 0 0.3rem 0;
+      color: #2e2e2e;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .articles p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #252323;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* Border for images in গান section */
+    .dropdown:nth-child(3) .articles img {
+      border: 2px solid #ffd992;
+    }
+
+    /* Dropdown Styling */
+    .dropdown {
+      width: 100%;
+      max-width: 1300px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .dropdown-header {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #cc0000;
+      cursor: pointer;
+      padding: 1rem;
+      background: #e9c466;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dropdown-header:hover {
+      background: #ffe2b5;
+      color: #ff0e0e;
+    }
+    .dropdown-header.active {
+      background: #98ebeb;
+    }
+    .dropdown-header::after {
+      content: '▶';
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+    .dropdown-header.active::after {
+      transform: rotate(90deg);
+    }
+    .dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 1s ease, opacity 1s ease;
+    }
+    .dropdown-content.open {
+      max-height: 1000px;
+      opacity: 1;
+    }
+
+    /* Search Bar Styling */
+    .search-container {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .search-bar {
+      width: 100%;
+      max-width: 500px;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 2px solid #ffd992;
+      border-radius: 6px;
+      background: #fffafa;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .search-bar:focus {
+      border-color: #e9c466;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .search-bar::placeholder {
+      color: #777;
+    }
+
+    /* Main Section */
+    main {
+      background: linear-gradient(to bottom, #ffffff, #ffd992);
+      margin: 2rem auto;
+      max-width: 2000px;
+      padding: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      header {
+        height: 400px;
+      }
+      .header-center-text h2 {
+        font-size: 1.6rem;
+      }
+      .header-center-text h1 {
+        font-size: 2.2rem;
+      }
+      header nav ul {
+        gap: 0.8rem;
+      }
+      header nav ul li a {
+        padding: 0.6rem 1.4rem;
+        font-size: 1rem;
+      }
+      .hero {
+        padding: 30px 1.5rem;
+      }
+      .hero h2 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .articles {
+        grid-template-columns: repeat(auto-fit, minmax(22%, 1fr));
+      }
+      .articles article {
+        height: 180px;
+      }
+      .articles img {
+        width: 90px;
+        height: 63px;
+      }
+      .articles h3 {
+        font-size: 1rem;
+      }
+      .articles p {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      header {
+        height: 350px;
+      }
+      .header-top-left img {
+        width: 50px;
+        margin-right: 0.8rem;
+      }
+      .header-top-left h2 {
+        font-size: 1.3rem;
+      }
+      .header-center-text h2 {
+        font-size: 1.4rem;
+      }
+      .header-center-text h1 {
+        font-size: 1.9rem;
+      }
+      header nav ul li a {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      .hero {
+        padding: 25px 1rem;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      .hero p {
+        font-size: 0.95rem;
+      }
+      .articles {
+        grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+      }
+      .articles article {
+        height: 160px;
+      }
+      .articles img {
+        width: 80px;
+        height: 56px;
+      }
+      .articles h3 {
+        font-size: 0.9rem;
+      }
+      .articles p {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        height: 300px;
+      }
+      .header-top-left img {
+        width: 40px;
+        margin-right: 0.5rem;
+      }
+      .header-top-left h2 {
+        font-size: 1.1rem;
+      }
+      .header-center-text {
+        top: 30%;
+      }
+      .header-center-text h2 {
+        font-size: 1.2rem;
+      }
+      .header-center-text h1 {
+        font-size: 1.6rem;
+      }
+      header nav {
+        bottom: 0.5rem;
+      }
+      header nav ul {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      header nav ul li a {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+      }
+      .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-text {
+        max-width: 100%;
+        margin-bottom: 1rem;
+      }
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+      .hero p {
+        font-size: 0.9rem;
+      }
+      .hero-image {
+        max-width: 100%;
+      }
+      .articles {
+        grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+      }
+      .articles article {
+        height: 140px;
+      }
+      .articles img {
+        width: 70px;
+        height: 49px;
+      }
+      .articles h3 {
+        font-size: 0.85rem;
+      }
+      .articles p {
+        font-size: 0.7rem;
+      }
+      .dropdown-header {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      header {
+        height: 250px;
+      }
+      .header-top-left img {
+        width: 30px;
+      }
+      .header-top-left h2 {
+        font-size: 0.9rem;
+      }
+      .header-center-text h2 {
+        font-size: 1rem;
+      }
+      .header-center-text h1 {
+        font-size: 1.3rem;
+      }
+      header nav ul li a {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.7rem;
+      }
+      .hero {
+        padding: 15px 0.5rem;
+      }
+      .hero h2 {
+        font-size: 1.3rem;
+      }
+      .hero p {
+        font-size: 0.85rem;
+      }
+      .articles {
+        grid-template-columns: 1fr;
+      }
+      .articles article {
+        height: 120px;
+      }
+      .articles img {
+        width: 60px;
+        height: 42px;
+      }
+      .articles h3 {
+        font-size: 0.8rem;
+      }
+      .articles p {
+        font-size: 0.65rem;
+      }
+      .dropdown-header {
+        font-size: 1.3rem;
+        padding: 0.8rem;
+      }
+      .search-bar {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a href="example.html"><div class="header-top-left">
+      <img src="media/rkm-removebg-preview.png" alt="RKMVM Logo">
+      <h2>Ramakrishna Mission Vidyamandira</h2>
+    </div></a>
+
+  <div class="header-center-text">
+    <h2>Puja Magazine</h2>
+    <h1>প্রয়াস - বিবেক ভবন</h1>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a class="active" href="index.html">This Year</a></li>
+      <li><a href="previous.html">Previous Year</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>ভূমিকা</h2>
+        <p>অস্তাচলগামী সূর্য ডাকে বারংবার</p>
+        <p>সময়ের এক অনির্বচনীয় পিছুটান।</p>
+        <p>সেই সূর্য তো ভোরও দেখেছিল</p>
+        <p>যেমন মহাশক্তি দেখেছে ব্রহ্মাণ্ডের উষাকাল।</p>
+        <p>নব আলোকিত দিনের মতোই</p>
+        <p>লেখা হয়েছে ব্রহ্মাণ্ডের যাত্রাপথ।</p>
+        <br>
+        <p>তরল অন্ধকারে ঢাকা আকাশ যেমন অপেক্ষা করে</p>
+        <p>এক নতুন স্বর্ণোজ্জ্বল ভোরের জন্য,</p>
+        <p>সময়ও যেন তেমনই অপেক্ষারত</p>
+        <p>এক নতুন সুদিনের।</p>
+        <br>
+        <p>ধর্মভেদের বেড়াজাল ছাড়িয়ে</p>
+        <p>শুভ-র জয় গান শুনতে চায় সেই সময়।</p>
+        <p>কল্পনার হাতে হাত রেখে সময়ের পর্দা সরিয়ে</p>
+        <p>হারাতে ইচ্ছা করে সেই মায়াবী স্বপ্নের দুনিয়ায়।</p>
+        <br>
+        <p>“হিংসায় উন্মত্ত পৃথ্বী,নিত্য নিঠুর দ্বন্দ্ব"— এই দ্বন্দ্ব সংঘাতের রক্তাক্ত আবহে, উন্মত্ত নগর সভ্যতার পাষাণ বেদীতে দেবী দুর্গার আবাহন শুধু আড়ম্বরের রোশনাই — প্রাণে প্রাণ যোগ করার মিথ্যা আয়োজন। কিন্তু,মহাকালের রথের চাকায় সোনার মুকুট কত ফুটে আর টুটে। তাই স্বপ্নের পুষ্পকরথে পাড়ি দিয়ে আমরা পৌঁছে গেছি ৩০৫৫ সালে— যেখানে দেবী উমা এসেছেন শ্যামোলিমা সংহতি রূপে। মুছে গেছে হিংসা- দ্বেষ -বাতাসের যত কালিমা। বীরেন্দ্রকৃষ্ণ ভদ্রের জলদগম্ভীর স্তোত্র পাঠের মধ্যে যে ধ্বনী আবহমান বাঙালির সুনীল হৃদয়াকাশে শুভ্র মেঘের হাস্যোজ্জ্বল প্রভাত—আলোক প্রতিভাত হয়, সেদিনও উঠেছে ভেসে সেই সুর —সেই গান। আকাশগঙ্গার সীমানা ছাড়িয়ে সেই ধ্বনি ছড়িয়েছে মহাবিশ্বের অন্য অন্য কোনো প্রান্তে। ধর্মভেদের সীমানা গেছে হারিয়ে। বিজ্ঞান প্রযুক্তির ক্রমোন্নতির ভেলায় পাড়ি দিয়ে মানুষ পৌঁছে গেছে ব্রহ্মাণ্ডের অন্য কোনো প্রান্তে। এক উন্নততর সমাজ সে নিজেকেই নিজে উপহার দিয়েছে। আর সেই শ্যামল সবুজ ছায়া সুনিবির শান্তির নীড়ে এসেছেন উমা —“যেন বুদ্ধের করুণ আঁখি দুটি সন্ধ্যাতারা সম রহিয়াছে ফুটি।” অনাবিল শান্তি আর আনন্দ ——</p>
+        <p>আনন্দধারা বহিছে ভুবনে।</p>
+      </div>
+      <div class="hero-image">
+        <img src="media/wallmagimg.jpeg" alt="Durga painting">
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="dropdown">
+      <div class="dropdown-header" lang="bn" role="button" tabindex="0" aria-expanded="false">প্রবন্ধ</div>
+      <div class="dropdown-content">
+        <div class="search-container">
+          <input type="text" class="search-bar" placeholder="প্রবন্ধ অনুসন্ধান করুন..." aria-label="Search articles">
+        </div>
+        <section class="articles">
+          <a href="article/essay/philosophy.html">
+            <article>
+              <img src="media/sayantan.jpg" alt="A Philosophical Lens on Durga Puja">
+              <div class="text-content">
+                <h3 data-translit="bibortoner drishtite ananda">A Philosophical Lens on Durga Puja</h3>
+                <p data-translit="prithwiraj mallik, snatak prothom borsho, bibhag: pranibidya">Sayantan Pahari ,UG-1 ,Chemistry</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/hearts_sayandeep.html">
+            <article>
+              <img src="media/sayandeep.jpg" alt="Abstract representation of happiness">
+              <div class="text-content">
+                <h3 data-translit="imagine happiness">Durga Puja In The Hearts Of Tomorrow</h3>
+                <p data-translit="aranya mondal, ug-1, department of english">Sayandeep Samanta, English UG-1</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/unmochon_surjo.html">
+            <article>
+              <img src="media/surja.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">উন্মোচন</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">সূর্য মাল,পদার্থবিদ্যা,স্নাতক প্রথম বর্ষ</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/mahalaya_tathastu.html">
+            <article>
+              <img src="media/tathastu.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">Resonance of Mahalaya Across the World</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Tathastu Ghosh, UG-1st year, Dept. of English</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/cosmic_manaswi.html">
+            <article>
+              <img src="media/manaswi.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">মা দুর্গা: মহাজাগতিক শক্তির প্রতীক</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Manaswi Dutta , Physics UG-1</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/Sayak_Mukharjee.html">
+            <article>
+              <img src="media/sayak.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">শক্তির আরাধনা: ধর্ম ভেদের গণ্ডি ছাড়িয়ে</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Sayak Mukharjee, UG-1, Department of Industrial Chemistry</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/Aritra_naskar.html">
+            <article>
+              <img src="media/aritra.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">দুর্গা on Magnetic Field</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Aritra Naskar, UG-1, Department of Physics</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/dibyendu.html">
+            <article>
+              <img src="media/dibyendu.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">বিশ্বব্রহ্মাণ্ডময়ীতায়-উমা</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">দিব্যেন্দু বিশ্বাস,পদার্থবিদ্যা,স্নাতক প্রথম বর্ষ</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/KC.html">
+            <article>
+              <img src="media/kc.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">সালটা ২০৯৭। কলকাতা।</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Krishnendu Chattaraj, UG-1, Department of English</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/Souvik_Das.html">
+            <article>
+              <img src="media/souvik.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">শক্তিরূপেন সংস্থিতা</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Souvik Das, UG-1, Department of Microbiology</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/essay/Suvam_Bera.html">
+            <article>
+              <img src="media/suvam.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">महाशक्तिस्वरूपा दूर्गा</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">शुभम् - वेरा, प्रथमवर्षः, संस्कृतविभागः</p>
+              </div>
+            </article>
+          </a>
+        </section>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="dropdown-header" lang="bn" role="button" tabindex="0" aria-expanded="false">কবিতা</div>
+      <div class="dropdown-content">
+        <div class="search-container">
+          <input type="text" class="search-bar" placeholder="কবিতা অনুসন্ধান করুন..." aria-label="Search poems">
+        </div>
+        <section class="articles">
+          <a href="article/poetry/dissonance_swastika.html">
+            <article>
+              <img src="media/swastika.jpg" alt="Image of Goddess Uma">
+              <div class="text-content">
+                <h3 data-translit="puja ek anandabhandar">Dissonance</h3>
+                <p data-translit="krishanu mondal, snatak prothom borsho, bibhag: pranibidya">Swastik Maity,Physics,1st year</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/poetry/Richeek.html">
+            <article>
+              <img src="media/richeek.jpg" alt="Traditional Bengali home during Puja">
+              <div class="text-content">
+                <h3 data-translit="sarada amar dugga">Neon Durgati</h3>
+                <p data-translit="sampad singh, snatak dwitiyo borsho, itihas bibhag">Richeek Chakrabarti, UG-1, Department of English</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/poetry/Debopriya_Jana.html">
+            <article>
+              <img src="media/jana.jpg" alt="Kumari Puja ceremony">
+              <div class="text-content">
+                <h3 data-translit="kumari puja">Greening Naraka</h3>
+                <p data-translit="arpon chakraborty, dwitiyo borsho, rasayan">Debopriya Jana, UG-1, Department of English</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/poetry/Anubhab_Maity.html">
+            <article>
+              <img src="media/anubhab.jpg" alt="Kumari Puja ceremony">
+              <div class="text-content">
+                <h3 data-translit="kumari puja">সান্নিধ্য</h3>
+                <p data-translit="arpon chakraborty, dwitiyo borsho, rasayan">অনুভব মাইতি, প্রথম বর্ষ, বাণিজ্য রসায়ন বিভাগ</p>
+              </div>
+            </article>
+          </a>
+          <a href="article/poetry/Tapobrata.html">
+            <article>
+              <img src="media/tapabrata.jpg" alt="Kumari Puja ceremony">
+              <div class="text-content">
+                <h3 data-translit="kumari puja">ভাবীকালের আবাহনী</h3>
+                <p data-translit="arpon chakraborty, dwitiyo borsho, rasayan">তপোব্রত নন্দ, প্রথম বর্ষ, পদার্থবিদ্যা বিভাগ</p>
+              </div>
+            </article>
+          </a>
+        </section>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="dropdown-header" lang="bn" role="button" tabindex="0" aria-expanded="false">গান</div>
+      <div class="dropdown-content">
+        <div class="search-container">
+          <input type="text" class="search-bar" placeholder="গান অনুসন্ধান করুন..." aria-label="Search songs">
+        </div>
+        <section class="articles">
+          <a href="songs.html">
+            <article>
+              <img src="media/songs.jpg" alt="Dhaki playing drums during Durga Puja">
+              <div class="text-content">
+                <h3 data-translit="dhaker tale nacho ma">ঢাকের তালে নাচো মা</h3>
+                <p data-translit="soumyadeep das, snatak prothom borsho, bibhag: padarthabidya">সৌম্যদীপ দাস, স্নাতক প্রথম বর্ষ, বিভাগ: পদার্থবিদ্যা</p>
+              </div>
+            </article>
+          </a>
+          <a href="songs.html">
+            <article>
+              <img src="media/songs.jpg" alt="Singing during Durga Puja">
+              <div class="text-content">
+                <h3 data-translit="anander dhwani">আনন্দের ধ্বনি</h3>
+                <p data-translit="rahul sen, snatak dwitiyo borsho, ganit bibhag">রাহুল সেন, স্নাতক দ্বিতীয় বর্ষ, গণিত বিভাগ</p>
+              </div>
+            </article>
+          </a>
+          <a href="songs.html">
+            <article>
+              <img src="media/songs.jpg" alt="Devotional music during Puja">
+              <div class="text-content">
+                <h3 data-translit="mayer gan">মায়ের গান</h3>
+                <p data-translit="dipankar ray, snatak prothom borsho, bibhag: rasayan">দীপঙ্কর রায়, স্নাতক প্রথম বর্ষ, বিভাগ: রসায়ন</p>
+              </div>
+            </article>
+          </a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+<footer class="spiritual-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="media/rkm-removebg-preview.png" alt="RKMVM Logo">
+      <p>&copy; 2025 Ramakrishna Mission Vidyamandira</p>
+    </div>
+    <div class="footer-center">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">This Year</a></li>
+        <li><a href="previous.html">Previous Years</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-right">
+      <h4>Contact</h4>
+      <p>Belur Math, Howrah, WB</p>
+      <p>Email: info@vidyamandira.ac.in</p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    // Dropdown toggle functionality
+    document.querySelectorAll('.dropdown-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const isOpen = content.classList.contains('open');
+
+        document.querySelectorAll('.dropdown-content').forEach(otherContent => {
+          if (otherContent !== content) {
+            otherContent.classList.remove('open');
+            otherContent.style.maxHeight = '0';
+            otherContent.style.opacity = '0';
+            const searchBar = otherContent.querySelector('.search-bar');
+            if (searchBar) searchBar.value = '';
+            otherContent.querySelectorAll('.articles article').forEach(article => {
+              article.classList.remove('hidden');
+            });
+          }
+        });
+        document.querySelectorAll('.dropdown-header').forEach(otherHeader => {
+          if (otherHeader !== header) {
+            otherHeader.classList.remove('active');
+            otherHeader.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        if (isOpen) {
+          content.classList.remove('open');
+          content.style.maxHeight = '0';
+          content.style.opacity = '0';
+          header.classList.remove('active');
+          header.setAttribute('aria-expanded', 'false');
+          const searchBar = content.querySelector('.search-bar');
+          if (searchBar) searchBar.value = '';
+          content.querySelectorAll('.articles article').forEach(article => {
+            article.classList.remove('hidden');
+          });
+        } else {
+          content.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.opacity = '1';
+          header.classList.add('active');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      header.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          header.click();
+        }
+      });
+    });
+
+    // Search functionality with transliteration support
+    document.querySelectorAll('.search-bar').forEach(searchBar => {
+      searchBar.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        const articles = this.parentElement.parentElement.querySelectorAll('.articles article');
+
+        articles.forEach(article => {
+          const h3 = article.querySelector('h3');
+          const p = article.querySelector('p');
+
+          const title = h3.textContent.toLowerCase();
+          const author = p.textContent.toLowerCase();
+
+          const translitTitle = h3.dataset.translit ? h3.dataset.translit.toLowerCase() : "";
+          const translitAuthor = p.dataset.translit ? p.dataset.translit.toLowerCase() : "";
+
+          if (
+            title.includes(query) ||
+            author.includes(query) ||
+            translitTitle.includes(query) ||
+            translitAuthor.includes(query)
+          ) {
+            article.classList.remove('hidden');
+          } else {
+            article.classList.add('hidden');
+          }
+        });
+
+        const dropdownContent = searchBar.closest('.dropdown-content');
+        if (dropdownContent.classList.contains('open')) {
+          dropdownContent.style.maxHeight = dropdownContent.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Debugging: Log navigation click for "This Year" link
+    document.querySelector('a[href="./index_main.html"]')?.addEventListener('click', (e) => {
+      console.log('Navigating to ./index_main.html');
+    });
+  </script>
+</body>
+</html>

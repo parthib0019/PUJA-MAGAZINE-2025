@@ -5,17 +5,10 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Writters name</title>
+  <title>Manaswi Dutta</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../footer.css" />
-  <!-- Font Awesome CDN -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
   <style>
-    
     /* ----- HEADER ----- */
     header {
       text-align: center;
@@ -94,8 +87,7 @@
     .back-link:hover {
       color: #704c00;
     }
-    /*share*/
-    .share-button {
+       .share-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,6 +121,7 @@
 .share-button:hover svg {
   stroke: #a67c00; /* Changes SVG color on hover */
 }
+
 /* ----- CUSTOM AUDIO PLAYER (ENHANCED) ----- */
 .custom-audio-player {
     display: flex;
@@ -252,8 +245,8 @@
   </header>
 
 <main class="article-container">
-  <h2>Imagine: Happiness</h2>
-  <p class="article-meta">Aranya Mondal, UG-1, Department of English  <button id="shareButton" class="share-button" title="Share this article">
+  <h2>মা দুর্গা: মহাজাগতিক শক্তির প্রতীক</h2>
+  <p class="article-meta">Manaswi Dutta , Physics UG-1  <button id="shareButton" class="share-button" title="Share this article">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -272,10 +265,9 @@
   </svg>
   <span>Share</span>
 </button></p>
-  <img src="../../media/happiness.webp" alt="puja">
-
- <!-- /* ----- audio ----- */ -->
-   <div class="custom-audio-player">
+  
+  <img src="../../media/manaswi.jpg" alt="puja">
+    <div class="custom-audio-player">
     <audio id="article-audio" src="../../media/example.mp3"></audio>
     
     <button id="play-pause-btn" class="player-btn">
@@ -290,18 +282,14 @@
     </div>
 </div>
 
-
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus eligendi reiciendis ad id a fuga facilis, quam eum voluptate dicta quae impedit consequuntur iste rem hic, autem dignissimos veniam? Perspiciatis.</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit minus modi harum consequatur laborum aliquam ipsa quia omnis quod quis delectus eos aperiam odit magnam mollitia necessitatibus a, cum dolore.</p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <p>মা দুর্গা শুধুই পুরাণের এক চরিত্র নন, তিনি এমন এর অনন্ত মহাশক্তির প্রতীক যিনি বিশ্বব্রহ্মাণ্ডকে সৃষ্টি, ধারণ ও রক্ষা করেন। শক্তির মূল নিয়ম হল—শক্তি কখনও বিনষ্ট হয় না, কেবল রূপান্তরিত হয়। মা দুর্গা সেই রূপান্তরের চিরন্তন ধারা, যিনি এক সময়ে মমতাময়ী জননী, আবার অন্য সময়ে অসুর বিনাশিনী শক্তি।</p>
+    <p>আধুনিক বিজ্ঞানও একই সত্যকে ভিন্ন ভাষায় প্রকাশ করে। পদার্থবিজ্ঞানের এক যুগান্তকারী আবিষ্কার হলো হিগস বোসন বা “গড পার্টিকল” ।  গড পার্টিকেল এর প্রকৃতি দেখলে জানা যায় যে অদৃশ্য শক্তিক্ষেত্র ছাড়া পদার্থের অস্তিত্বই অসম্ভব। এ যেন দুর্গাশক্তির বৈজ্ঞানিক প্রতিফলন, যিনি অদৃশ্য থেকেও সর্বত্র বিরাজমান। আবার Multiverse ধারণা বলছে, অসংখ্য সমান্তরাল বিশ্ব থাকতে পারে, প্রতিটির আলাদা নিয়মে। এই অসীম সম্ভাবনার মধ্যেও আমরা দেখতে পাই মা দুর্গার অসীম রূপ—প্রকৃতির, জীবনের, আর সৃষ্টির বহুমাত্রিক রূপ।</p>
+    <p>আবার, দুর্গা পূজা তাই কেবল ধর্মীয় আচার নয়; এটি এক দার্শনিক উপলব্ধি—যে মহাশক্তি আমাদের হৃদয়ে, আমাদের সমাজে, এমনকি মহাবিশ্বের প্রতিটি কণায় বিরাজমান। তাই মা দুর্গা একদিকে সংস্কৃতির প্রাণ, অন্যদিকে বিজ্ঞানের আলোয় মহাজাগতিক শক্তির শাশ্বত প্রতীক</p>
+    
     
 
 
+    <audio src="media/prithwi (1).mp3"></audio>
 
 
 
@@ -337,6 +325,7 @@
 
   </div>
 </footer>
+
 <script>
    const handleShare = async () => {
     const url = window.location.href;
@@ -372,11 +361,7 @@
     }
   };
   document.getElementById('shareButton').addEventListener('click', handleShare);
-
-
-
-    // --- Custom Audio Player Logic ---
-    const audio = document.getElementById('article-audio');
+ const audio = document.getElementById('article-audio');
     const playPauseBtn = document.getElementById('play-pause-btn');
     const playIcon = '<i class="fas fa-play"></i>';
     const pauseIcon = '<i class="fas fa-pause"></i>';
@@ -440,9 +425,7 @@
     });
 
 
-
-
-
 </script>
+
 </body>
 </html>
