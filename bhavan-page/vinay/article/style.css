@@ -17,7 +17,7 @@ header {
   text-align: center;
   padding: 3rem 1rem;
   color: white;
-  background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url('media/shradhhaa.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url('../media/maa.png');
   background-size: cover;
   background-position: center;
   height: 500px;
@@ -97,6 +97,104 @@ nav a:hover, nav a.active {
 .hero-image img {
   width: 100%; border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ----- CUSTOM AUDIO PLAYER (ENHANCED) ----- */
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(145deg, #f9f9f9, #e6e6e6); /* Subtle gradient background */
+    padding: 0.75rem 1rem;
+    border-radius: 50px; /* Pill shape */
+    margin: 2rem 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Softer, more pronounced shadow */
+}
+
+.player-btn {
+    background-color: #c93e07;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px; /* Slightly larger button */
+    height: 45px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevents button from shrinking */
+    box-shadow: 0 2px 5px rgba(166, 61, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.player-btn:hover {
+    background-color: #702000;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(112, 41, 0, 0.5);
+}
+
+/* This is the key change for centering */
+.progress-and-time {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between progress bar and time */
+    width: 100%;
+}
+
+.player-progress-container {
+    background: #dcdcdc;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 10px; /* Thicker bar */
+    width: 100%;
+    flex-grow: 1; /* Allows the bar to take up available space */
+    transition: height 0.2s ease;
+}
+
+/* Hover effect for the progress container */
+.player-progress-container:hover {
+    height: 12px; /* Bar gets slightly thicker on hover */
+}
+
+.player-progress {
+    background-color: #c93e07;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    position: relative; /* Needed for the thumb pseudo-element */
+    transition: width 0.1s linear;
+}
+
+/* --- The new "thumb" on the progress bar --- */
+.player-progress::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 18px; /* Thumb size */
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid #c93e07;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.custom-audio-player:hover .player-progress::after {
+    opacity: 1; /* Show thumb when hovering the player */
+}
+
+.time-display {
+    font-size: 0.9rem;
+    color: #333;
+    font-family: monospace; /* Monospaced font for clean time display */
+    font-weight: bold;
+    min-width: 90px; /* Prevents layout shift as time changes */
+    text-align: center;
 }
 
 /* Footer */

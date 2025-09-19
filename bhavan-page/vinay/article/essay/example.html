@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=68c56243aff9b3bad3a7c43d&product=sop' async='async'></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Writters name</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../footer.css" />
+  <!-- Font Awesome CDN -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+  <style>
+    
+    /* ----- HEADER ----- */
+    header {
+      text-align: center;
+      padding: 1.5rem;
+      background: #fff6e5;
+      border-bottom: 1px solid #eee;
+    }
+    header img {
+      height: 80px;
+      vertical-align: middle;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+
+    header h3 {
+
+      color: #2e2e2e;
+      margin: 0.5rem 0 1rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0;
+      margin: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #a67c00;
+    }
+
+    /* ----- ARTICLE PAGE ----- */
+    .article-container {
+      max-width: 900px;
+      margin: auto;
+      padding: 3rem 2rem;
+      line-height: 1.8;
+    }
+    .article-container h2 {
+      font-size: 2.3rem;
+      margin-bottom: 0.5rem;
+      color: #2e2e2e;
+    }
+    .article-meta {
+      color: #777;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-container img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .article-container p {
+      margin-bottom: 1.5rem;
+      color: #444;
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      text-decoration: none;
+      color: #a67c00;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .back-link:hover {
+      color: #704c00;
+    }
+    /*share*/
+    .share-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Adds space between icon and text */
+  padding: 10px 18px;
+  background-color: #f7f7f7;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.share-button:hover {
+  background-color: #e9e9e9;
+  border-color: #a67c00;
+  color: #a67c00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.share-button svg {
+  width: 20px;
+  height: 20px;
+  transition: stroke 0.3s ease;
+}
+
+.share-button:hover svg {
+  stroke: #a67c00; /* Changes SVG color on hover */
+}
+/* ----- CUSTOM AUDIO PLAYER (ENHANCED) ----- */
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(145deg, #f9f9f9, #e6e6e6); /* Subtle gradient background */
+    padding: 0.75rem 1rem;
+    border-radius: 50px; /* Pill shape */
+    margin: 2rem 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Softer, more pronounced shadow */
+}
+
+.player-btn {
+    background-color: #c93e07;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px; /* Slightly larger button */
+    height: 45px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevents button from shrinking */
+    box-shadow: 0 2px 5px rgba(166, 61, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.player-btn:hover {
+    background-color: #702000;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(112, 41, 0, 0.5);
+}
+
+/* This is the key change for centering */
+.progress-and-time {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between progress bar and time */
+    width: 100%;
+}
+
+.player-progress-container {
+    background: #dcdcdc;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 10px; /* Thicker bar */
+    width: 100%;
+    flex-grow: 1; /* Allows the bar to take up available space */
+    transition: height 0.2s ease;
+}
+
+/* Hover effect for the progress container */
+.player-progress-container:hover {
+    height: 12px; /* Bar gets slightly thicker on hover */
+}
+
+.player-progress {
+    background-color: #c93e07;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    position: relative; /* Needed for the thumb pseudo-element */
+    transition: width 0.1s linear;
+}
+
+/* --- The new "thumb" on the progress bar --- */
+.player-progress::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 18px; /* Thumb size */
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid #c93e07;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.custom-audio-player:hover .player-progress::after {
+    opacity: 1; /* Show thumb when hovering the player */
+}
+
+.time-display {
+    font-size: 0.9rem;
+    color: #333;
+    font-family: monospace; /* Monospaced font for clean time display */
+    font-weight: bold;
+    min-width: 90px; /* Prevents layout shift as time changes */
+    text-align: center;
+}
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../footer.css" />
+
+</head>
+<body>
+
+<header>
+    <a href = "example.html"><div class="header-top-left">
+      <img src="../../media/rkm-removebg-preview.png" alt="RKMVM Logo">
+      <h2>Ramakrishna Mission Vidyamandira</h2>
+    </div></a>
+    <div class="header-center-text">
+      <h2>Puja Magazine</h2>
+      <h1>প্রয়াস - বিবেক ভবন</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a class="active" href="../../index.html">This Year</a></li>
+        <li><a href="../../previous.html">Previous Year</a></li>
+        <li><a href="../../about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<main class="article-container">
+  <h2>Imagine: Happiness</h2>
+  <p class="article-meta">Aranya Mondal, UG-1, Department of English  <button id="shareButton" class="share-button" title="Share this article">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="feather feather-share-2"
+  >
+    <circle cx="18" cy="5" r="3"></circle>
+    <circle cx="6" cy="12" r="3"></circle>
+    <circle cx="18" cy="19" r="3"></circle>
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+  </svg>
+  <span>Share</span>
+</button></p>
+  <img src="../../media/happiness.webp" alt="puja">
+
+ <!-- /* ----- audio ----- */ -->
+   <div class="custom-audio-player">
+    <audio id="article-audio" src="../../media/example.mp3"></audio>
+    
+    <button id="play-pause-btn" class="player-btn">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <div class="progress-and-time">
+        <div id="player-progress-container" class="player-progress-container">
+            <div id="player-progress" class="player-progress"></div>
+        </div>
+        <div id="time-display" class="time-display">0:00 / 0:00</div>
+    </div>
+</div>
+
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus eligendi reiciendis ad id a fuga facilis, quam eum voluptate dicta quae impedit consequuntur iste rem hic, autem dignissimos veniam? Perspiciatis.</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit minus modi harum consequatur laborum aliquam ipsa quia omnis quod quis delectus eos aperiam odit magnam mollitia necessitatibus a, cum dolore.</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    
+
+
+
+
+
+  <a href="../../index.html" class="back-link">&larr; Back to This Year’s Articles</a>
+</main>
+
+<footer class="spiritual-footer">
+  <div class="footer-container">
+
+    <!-- Left -->
+    <div class="footer-left">
+      <img src="../../media/rkm-removebg-preview.png" alt="RKMVM Logo">
+      <!-- <h3>প্রয়াস - বিবেক ভবন</h3> -->
+      <p>&copy; 2025 Ramakrishna Mission Vidyamandira</p>
+    </div>
+
+    <!-- Center -->
+    <div class="footer-center">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../../index.html">This Year</a></li>
+        <li><a href="../../previous.html">Previous Years</a></li>
+        <li><a href="../../about.html">About Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Right -->
+    <div class="footer-right">
+      <h4>Contact</h4>
+      <p>Belur Math, Howrah, WB</p>
+      <p>Email: info@vidyamandira.ac.in</p>
+    </div>
+
+  </div>
+</footer>
+<script>
+   const handleShare = async () => {
+    const url = window.location.href;
+    const title = document.querySelector('h2').textContent;
+    const text = `Check out this article: ${title}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          text: text,
+          url: url,
+        });
+      } catch (err) {
+        console.error('Error sharing:', err);
+        // Fallback to copy
+        try {
+          await navigator.clipboard.writeText(url);
+          alert('Link copied to clipboard!');
+        } catch (copyErr) {
+          console.error('Failed to copy:', copyErr);
+          alert('Sharing not supported. Please copy the URL manually.');
+        }
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(url);
+        alert('Link copied to clipboard!');
+      } catch (err) {
+        console.error('Failed to copy:', err);
+        alert('Sharing not supported. Please copy the URL manually.');
+      }
+    }
+  };
+  document.getElementById('shareButton').addEventListener('click', handleShare);
+
+
+
+    // --- Custom Audio Player Logic ---
+    const audio = document.getElementById('article-audio');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = '<i class="fas fa-play"></i>';
+    const pauseIcon = '<i class="fas fa-pause"></i>';
+    
+    const progressContainer = document.getElementById('player-progress-container');
+    const progress = document.getElementById('player-progress');
+    const timeDisplay = document.getElementById('time-display');
+
+    // Function to toggle play and pause
+    function togglePlayPause() {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.innerHTML = pauseIcon;
+        } else {
+            audio.pause();
+            playPauseBtn.innerHTML = playIcon;
+        }
+    }
+
+    // Function to format time from seconds to MM:SS
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    // Function to update the progress bar and time display
+    function updateProgress() {
+        const { duration, currentTime } = audio;
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        
+        // Update time display if duration is a valid number
+        if (!isNaN(duration)) {
+             timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+        }
+    }
+
+    // Function to set the audio's current time when progress bar is clicked
+    function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    }
+
+    // Event Listeners
+    playPauseBtn.addEventListener('click', togglePlayPause);
+    audio.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
+
+    // Reset icon when audio finishes
+    audio.addEventListener('ended', () => {
+        playPauseBtn.innerHTML = playIcon;
+        progress.style.width = '0%';
+    });
+    
+    // Set initial duration when metadata loads
+    audio.addEventListener('loadedmetadata', () => {
+        updateProgress();
+    });
+
+
+
+
+
+</script>
+</body>
+</html>
